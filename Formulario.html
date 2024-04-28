@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario con Comportamiento</title>
+</head>
+<body>
+
+<h2>Formulario con Comportamiento</h2>
+
+<form id="myForm">
+  <label for="name">Nombre:</label>
+  <input type="text" id="name" name="name"><br><br>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  
+  <input type="submit" value="Enviar">
+</form>
+
+<script>
+  // Obtener el formulario
+  var form = document.getElementById("myForm");
+
+  // Agregar un evento de escucha para el evento submit
+  form.addEventListener("submit", function(event) {
+    // Detener el comportamiento predeterminado del formulario
+    event.preventDefault();
+    
+    // Obtener los valores del formulario
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    
+    // Validar que se haya ingresado un nombre y un email
+    if (name && email) {
+      // Enviar los datos del formulario (aquí puedes realizar una solicitud AJAX o cualquier otra acción)
+      alert("¡Formulario enviado!\nNombre: " + name + "\nEmail: " + email);
+    } else {
+      // Mostrar un mensaje de error si falta algún campo
+      alert("Por favor, completa todos los campos.");
+    }
+  });
+</script>
+
+</body>
+</html>
